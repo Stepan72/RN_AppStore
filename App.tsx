@@ -11,9 +11,11 @@ import {
 import { Octicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { storeColors } from "./theme";
-import { categories } from "./constants";
+import { categories, featured } from "./constants";
 import { useState } from "react";
 import GradientButton from "./components/GradientButton";
+import { ColorSchemeStore } from "nativewind/dist/style-sheet/color-scheme";
+import GameCard from "./components/GameCard";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("Action");
@@ -31,7 +33,7 @@ export default function App() {
             <FontAwesome name="bell" size={30} color={storeColors.text} />
           </View>
           {/* categories */}
-          <View className="mt-3 space-y-3">
+          <View className="mt-3 space-y-4">
             <Text
               style={{ color: storeColors.text }}
               className="ml-4 font-bold text-3xl"
@@ -69,7 +71,21 @@ export default function App() {
             </View>
           </View>
           {/* featured row */}
-          <View></View>
+          <View className="mt-3 space-y-4">
+            <Text
+              style={{ color: storeColors.text }}
+              className="ml-4 text-lg font-bold"
+            >
+              Featured Games
+            </Text>
+            <View className="pl-4">
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                {featured.map((item, index) => {
+                  return <GameCard key={index} {...item} />;
+                })}
+              </ScrollView>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </LinearGradient>

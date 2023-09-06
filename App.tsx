@@ -24,7 +24,14 @@ export default function App() {
       className="w-full flex-1"
     >
       <SafeAreaView>
-        <View className="container"></View>
+        <View className="container">
+          {/* upp buttons */}
+          <View className="flex-row justify-between items-center px-4">
+            <Octicons name="three-bars" size={30} color={storeColors.text} />
+            <FontAwesome name="bell" size={30} color={storeColors.text} />
+          </View>
+          {/* categories */}
+        </View>
       </SafeAreaView>
     </LinearGradient>
   );

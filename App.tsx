@@ -31,6 +31,45 @@ export default function App() {
             <FontAwesome name="bell" size={30} color={storeColors.text} />
           </View>
           {/* categories */}
+          <View className="mt-3 space-y-3">
+            <Text
+              style={{ color: storeColors.text }}
+              className="ml-4 font-bold text-3xl"
+            >
+              Browse Games
+            </Text>
+            <View className="pl-4">
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                {categories.map((cat, index) => {
+                  if (cat === activeCategory) {
+                    ///show gradient category
+                    return (
+                      <GradientButton
+                        containerClass="mr-2"
+                        value={cat}
+                        key={cat}
+                      />
+                    );
+                  } else {
+                    /// show normal category
+                    return (
+                      <TouchableOpacity
+                        key={cat}
+                        className="bg-blue-200 p-3 px-4 rounded-full mr-2"
+                        onPress={() => {
+                          setActiveCategory(cat);
+                        }}
+                      >
+                        <Text>{cat}</Text>
+                      </TouchableOpacity>
+                    );
+                  }
+                })}
+              </ScrollView>
+            </View>
+          </View>
+          {/* featured row */}
+          <View></View>
         </View>
       </SafeAreaView>
     </LinearGradient>

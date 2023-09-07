@@ -86,6 +86,8 @@ export default function App() {
               </ScrollView>
             </View>
           </View>
+          {/* top action games */}
+          <View className="mt-3"></View>
         </View>
       </SafeAreaView>
     </LinearGradient>
